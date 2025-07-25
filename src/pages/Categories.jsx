@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import mainproducts from "../components/Mainproducts";
 import { Viewer } from "@react-pdf-viewer/core";
 import background from "../images/triani-image-1.jpg";
@@ -13,8 +13,8 @@ import { ScrollTop } from "primereact/scrolltop";
 import trinai5 from "../images/trinai-5.jpg";
 
 const Categories = () => {
-  const [searchParams] = useSearchParams();
-  const id = searchParams.get("query");
+  const { type, name } = useParams();
+
   const [products, setProducts] = useState([]);
 
   const navigate = useNavigate();
@@ -23,21 +23,81 @@ const Categories = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  function formatCameraTitle(input) {
+    if (!input || typeof input !== "string") return ""; // ✅ Prevent error
+
+    const abbreviations = ["mp", "hd", "ptz", "ir", "poe"];
+
+    let replaced = input;
+    abbreviations.forEach((abbr) => {
+      const regex = new RegExp(abbr, "gi");
+      replaced = replaced.replace(regex, abbr.toUpperCase());
+    });
+
+    return replaced
+      .split("-")
+      .map((word) => {
+        if (abbreviations.some((abbr) => word === abbr.toUpperCase()))
+          return word;
+
+        if (/^\d+[A-Z]+$/.test(word)) return word;
+
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      .join(" ");
+  }
+
+  // Example usage
+
   useEffect(() => {
-    const name = id.split(" ")[0];
+    if (!name && !type) return;
 
-    if (id.endsWith("ras") || id.endsWith("Recorder")) {
-      // alert(name);
+    const keyword = name?.split(" ")[0];
+    const typekeyword = formatCameraTitle(type)?.split(" ")[0];
+    const thermalkeyword = formatCameraTitle(name)?.split(" ")[0];
+    const facerecognition = formatCameraTitle(name)?.split(" ")[0];
+    // alert(facerecognition);
+
+    // alert(thermalkeyword);
+
+    if (name) {
+      if (
+        name.endsWith("ras") ||
+        name.endsWith("Recorder") ||
+        name.endsWith("recognition")
+      ) {
+        const filteredProducts = mainproducts
+          .filter(
+            (product) =>
+              product.cameraType ===
+              formatCameraTitle(
+                `${
+                  thermalkeyword === "Thermal"
+                    ? thermalkeyword
+                    : facerecognition === "Ai"
+                    ? facerecognition
+                    : keyword
+                }`
+              )
+          )
+          .sort((a, b) => a.mp - b.mp);
+        console.log("kjhgfdfghj", filteredProducts);
+        setProducts(filteredProducts);
+      } else {
+        const products = mainproducts.filter(
+          (product) => product.name === formatCameraTitle(name)
+        );
+        setProducts(products);
+      }
+    } else if (type) {
+      // alert(typekeyword);
+
       const filteredProducts = mainproducts
-        .filter((product) => product.cameraType === name) // Filter by cameraType
-        .sort((a, b) => a.mp - b.mp); // Sort by type in ascending order
-
+        .filter((product) => product.cameraType === typekeyword)
+        .sort((a, b) => a.mp - b.mp);
       setProducts(filteredProducts);
-    } else {
-      const products = mainproducts.filter((product) => product.name === id);
-      setProducts(products);
     }
-  }, [id, mainproducts]); // Add dependencies to avoid unnecessary re-renders
+  }, [name, type]);
 
   return (
     <div>
@@ -55,20 +115,31 @@ const Categories = () => {
 
         {/* Optional heading or text content */}
         <div className="relative z-10 flex items-center justify-center h-full">
-          <h1 className="text-white text-4xl font-bold">
-            {id}
-            {id.endsWith("ras") ||
-            id.startsWith("Smart") ||
-            id.startsWith("Server")
-              ? ""
-              : "'s"}
-          </h1>
+          {name ? (
+            <h1 className="text-white text-4xl font-bold">
+              {formatCameraTitle(name)}
+              {!(
+                name?.endsWith("ras") ||
+                name?.startsWith("smart") ||
+                name?.startsWith("server") ||
+                name?.startsWith("ai-based")
+              ) && "'s"}
+            </h1>
+          ) : (
+            <h1 className="text-white text-4xl font-bold">
+              {formatCameraTitle(type)}
+            </h1>
+          )}
         </div>
       </div>
-      {id.startsWith("Smart") ? (
-        <div className="  bg-slate-50 text-gray-500 p-10   ">
+      {formatCameraTitle(name).startsWith("Smart") ||
+      formatCameraTitle(type).startsWith("Smart") ? (
+        <div className=" bg-slate-50 text-gray-500 p-10   ">
           <div className="w-full -mt-40 bg-red-50  items-center flex justify-center">
-            <Viewer fileUrl="/smartgpu.pdf" className="w-full h-screen" />
+            <Viewer
+              fileUrl={`${import.meta.env.BASE_URL}smartgpu.pdf`}
+              className="w-full h-screen"
+            />
           </div>
         </div>
       ) : (
@@ -81,27 +152,48 @@ const Categories = () => {
               >
                 {/* <div className=" text-center">{product.model}</div> */}
                 <div className=" min-h-52 flex justify-center items-center">
-                  {" "}
                   <img
                     onClick={() =>
                       navigate(
                         `/cemaradetails?query=${encodeURIComponent(product.id)}`
                       )
                     }
-                    src={product.picture}
-                    className=" text-center  hover:scale-105 transition  cursor-pointer"
+                    src={`${import.meta.env.BASE_URL}${product.picture.replace(
+                      /^\/+/,
+                      ""
+                    )}`}
+                    className={`text-center ${
+                      type?.startsWith("ai-based") ? "h-48 w-32" : ""
+                    }   hover:scale-105 transition  cursor-pointer`}
                   ></img>
                 </div>
                 <hr />
-                <div className="bg-white text-orange-600 p-2">
-                  {!id.endsWith("NVR") &&
-                    !id.endsWith("Recorder") &&
-                    !id.startsWith("Thermal") &&
-                    !id.startsWith("Server") && <span>{product.mp}MP</span>}
-                  <span className="text-gray-500 ms-3 text-center">
-                    {product.model}
-                  </span>
-                </div>
+
+                {type && (
+                  <div className="bg-white text-orange-600 p-2">
+                    {type === "network-video-recorder" ||
+                    type === "server" ||
+                    type === "ai-based-face-recognition" ? (
+                      ""
+                    ) : (
+                      <span>{product.mp}MP</span>
+                    )}
+                    <span className="text-gray-500 ms-3 text-center">
+                      {product.model}
+                    </span>
+                  </div>
+                )}
+                {name && (
+                  <div className="bg-white text-orange-600 p-2">
+                    {/* {!name.endsWith("nvr") &&
+                      !name.endsWith("Recorder") &&
+                      !name.startsWith("Thermal") &&
+                      !name.startsWith("Server") && <span>{product.mp}MP</span>}
+                    <span className="text-gray-500 ms-3 text-center">
+                      {product.model}
+                    </span> */}
+                  </div>
+                )}
               </div>
             ))}
           </div>

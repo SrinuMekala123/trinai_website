@@ -27,7 +27,8 @@ import Server from "./admin/Server";
 function App() {
   return (
     <BrowserRouter
-    //  basename="/trinai_temp"
+      //  basename="/trinai_temp"
+      basename="/"
     >
       <Routes>
         <Route path="/" element={<Main />}>
@@ -35,7 +36,7 @@ function App() {
           <Route path="contact" element={<Contact />}></Route>
           <Route path="solutions" element={<Solutions />}></Route>
           <Route path="about" element={<About />}></Route>
-          <Route path="categories" element={<Categories />}></Route>
+          <Route path="categories/:type/:name?" element={<Categories />} />
           <Route path="viewproducts" element={<Viewproducts />} />
           <Route path="cemaradetails" element={<Cameraproductsdetails />} />
           <Route path="products" element={<Products />}></Route>

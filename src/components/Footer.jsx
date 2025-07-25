@@ -8,19 +8,19 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import blogo from "../images/highbtlogo.png";
-import Threads from "../pages/Threads";
+// import Threads from "../pages/Threads";
 
 const Footer = () => {
   return (
     <footer className="relative bg-gray-800 text-white pb-8 overflow-hidden">
       {/* Background Threads */}
-      <Threads
+      {/* <Threads
         className="absolute bottom-0 left-0 w-full h-96 z-0"
         color={[0.2, 0.6, 0.9]}
         amplitude={0.8}
         distance={0.4}
         enableMouseInteraction={false}
-      />
+      /> */}
 
       {/* Foreground content */}
       <div className="relative z-10">

@@ -10,6 +10,7 @@ import ptz from "../images/AI02P150L66-33MV-148F-LS.png";
 import server from "../images/Trinai Server.png";
 import nvr from "../images/nvr.png";
 import thermal from "../images/thermal-camera.png";
+import aifacerecognition from "../images/TrinAI-TN50 (1).png";
 
 const categories = [
   //   "HD CCTV Camera",
@@ -24,6 +25,7 @@ const categories = [
 
   "Server",
   "Smart GPU with AI Camera",
+  "AI-Based Face Recognition",
   //   "WiFi Smart",
 ];
 
@@ -155,6 +157,14 @@ const productsByCategory = {
         "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
     },
   ],
+
+  "AI-Based Face Recognition": [
+    {
+      name: "AI-Based Face Recognition",
+      image:
+        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
+    },
+  ],
   "WiFi Smart": [
     {
       name: "WiFi Smart Indoor Camera",
@@ -185,6 +195,7 @@ const categoryImages = {
   "Network Switches":
     "http://trinai.in/Images/Poe%20Switches/4%20port%20poe.png",
   "Smart GPU with AI Camera": gpu,
+  "AI-Based Face Recognition": aifacerecognition,
   "WiFi Smart":
     "https://img.freepik.com/free-psd/router-isolated-transparent-background_191095-24268.jpg?uid=P7856354&ga=GA1.1.1780034646.1729582102&semt=ais_hybrid",
 };
@@ -217,9 +228,27 @@ const Header = () => {
   //   )
   // }
 
-  const HandleClick = (id) => {
-    navigate(`/categories?query=${encodeURIComponent(id)}`);
-    setIsCategoriesOpen(false);
+  const HandleClick = (product) => {
+    // alert(product.name);
+    const slugify = (text) => {
+      return text
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-") // Replace non-alphanumeric characters with hyphens
+        .replace(/^-+|-+$/g, ""); // Trim leading/trailing hyphens
+    };
+    if (product.name) {
+      const formattedType = selectedCategory.replace(/\s+/g, ""); // Remove spaces if needed
+      navigate(
+        `/categories/${slugify(selectedCategory)}/${encodeURIComponent(
+          slugify(product.name)
+        )}`
+      );
+      setIsCategoriesOpen(false);
+    } else {
+      const formattedType = selectedCategory.replace(/\s+/g, ""); // Remove spaces if needed
+      navigate(`/categories/${slugify(selectedCategory)}`);
+      setIsCategoriesOpen(false);
+    }
   };
 
   return (
@@ -270,7 +299,7 @@ const Header = () => {
                     <div
                       className=" cursor-pointer hover:text-blue-500"
                       onClick={() => {
-                        HandleClick(product.name);
+                        HandleClick(product);
                       }}
                     >
                       {product.name}
@@ -279,7 +308,7 @@ const Header = () => {
                 ))}
                 <div
                   onClick={() => {
-                    HandleClick(selectedCategory);
+                    HandleClick("see-more-products");
                   }}
                   className="text-blue-700 font-semibold  cursor-pointer hover:text-orange-600"
                 >
@@ -302,7 +331,11 @@ const Header = () => {
                     <img
                       src={categoryImages[selectedCategory]}
                       alt={selectedCategory}
-                      className=" w-32 h-auto"
+                      className={` ${
+                        selectedCategory === "AI-Based Face Recognition"
+                          ? " h-36  "
+                          : " w-32 h-auto"
+                      }`}
                     />
                   </div>
                 </div>
@@ -362,6 +395,10 @@ const Header = () => {
             className={`hover:text-orange-600 cursor-pointer text-xl font-bold ${
               location.pathname === "/categories" ? "text-orange-600" : ""
             }`}
+            onClick={() => {
+              navigate("/products");
+              setIsCategoriesOpen(false);
+            }}
           >
             Categories
           </div>

@@ -11,6 +11,7 @@ import CountUp from "react-countup";
 import carousel1 from "../images/triani-image-1.jpg";
 import carousel2 from "../images/new-2-01.jpg";
 import carousel3 from "../images/new3.jpg";
+import carousel4 from "../images/Untitled design.jpg";
 
 import { AntDesignOutlined } from "@ant-design/icons";
 import { Button, ConfigProvider, Space } from "antd";
@@ -167,8 +168,19 @@ const Home = () => {
                 initial={{ x: -200, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ duration: 1, ease: "easeOut" }}
+                className="md:block lg:block xl:block 2xl:block  hidden"
               >
-                <h2 className="text-3xl md:text-5xl font-bold">
+                <h2 className="text-2xl md:text-5xl font-bold">
+                  Complete CCTV Solutions
+                </h2>
+              </motion.div>
+              <motion.div
+                initial={{ x: 200, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className="md:hidden lg:hidden xl:hidden 2xl:hidden sm:block"
+              >
+                <h2 className="text-2xl md:text-5xl font-bold">
                   Complete CCTV Solutions
                 </h2>
               </motion.div>
@@ -200,6 +212,26 @@ const Home = () => {
               </h2>
               <p className="text-lg md:text-2xl mt-4">
                 AI-powered cameras with real-time analytics.
+              </p>
+            </motion.div>
+          </div>
+          <div className="relative">
+            <img
+              src={carousel4}
+              alt="Slide 1"
+              className="w-full h-[300px] md:h-[500px] lg:h-[700px] object-cover"
+            />
+            <motion.div
+              initial={{ x: 100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="absolute  inset-0 flex flex-col justify-center items-center md:items-start lg:items-start text-center text-white bg-opacity-30 md:p-20   lg:p-20"
+            >
+              <h2 className="text-3xl md:text-5xl font-bold">
+                AI-Powered Face Recognition Terminal
+              </h2>
+              <p className="text-lg md:text-2xl mt-4">
+                Smart, secure, and touchless identity access
               </p>
             </motion.div>
           </div>

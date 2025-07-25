@@ -11,6 +11,7 @@ import adnvr from "../images/dvr (1).png";
 import { useNavigate } from "react-router-dom";
 import { ScrollTop } from "primereact/scrolltop";
 import Extra from "../components/Extra";
+import face from "../images/facial-recognition (1).png";
 
 const Products = () => {
   useEffect(() => {
@@ -31,9 +32,7 @@ const Products = () => {
           <div
             className=" shadow-md hover:scale-105 p-5  cursor-pointer"
             onClick={() => {
-              navigate(
-                `/categories?query=${encodeURIComponent("Bullet Cameras")}`
-              );
+              navigate(`/categories/bullet-cameras`);
             }}
           >
             <div className=" flex justify-center items-center">
@@ -46,9 +45,7 @@ const Products = () => {
           <div
             className=" shadow-md hover:scale-105 p-5 cursor-pointer "
             onClick={() => {
-              navigate(
-                `/categories?query=${encodeURIComponent("Dome Cameras")}`
-              );
+              navigate(`/categories/dome-cameras`);
             }}
           >
             <div className=" flex justify-center items-center">
@@ -61,9 +58,7 @@ const Products = () => {
           <div
             className=" shadow-md hover:scale-105 p-5 cursor-pointer "
             onClick={() => {
-              navigate(
-                `/categories?query=${encodeURIComponent("Eyeball Cameras")}`
-              );
+              navigate(`/categories/eyeball-cameras`);
             }}
           >
             <div className=" flex justify-center items-center">
@@ -76,9 +71,7 @@ const Products = () => {
           <div
             className=" shadow-md p-5 cursor-pointer hover:scale-105 "
             onClick={() => {
-              navigate(
-                `/categories?query=${encodeURIComponent("PTZ Cameras")}`
-              );
+              navigate(`/categories/ptz-cameras`);
             }}
           >
             <div className=" flex justify-center items-center">
@@ -91,11 +84,7 @@ const Products = () => {
           <div
             className=" shadow-md hover:scale-105 p-5 cursor-pointer "
             onClick={() => {
-              navigate(
-                `/categories?query=${encodeURIComponent(
-                  "Network Video Recorder"
-                )}`
-              );
+              navigate(`/categories/network-video-recorder`);
             }}
           >
             <div className=" flex justify-center items-center">
@@ -105,6 +94,7 @@ const Products = () => {
               Network Video Recorder
             </div>
           </div>
+
           {/* <div className=" shadow-md hover:scale-105 p-5 cursor-pointer ">
             <div className=" flex justify-center items-center">
               <img className=" text-center" src={poe}></img>
@@ -116,7 +106,7 @@ const Products = () => {
           <div
             className=" shadow-md hover:scale-105 p-5  cursor-pointer"
             onClick={() => {
-              navigate(`/categories?query=${encodeURIComponent("Server")}`);
+              navigate(`/categories/server`);
             }}
           >
             <div className=" flex justify-center items-center">
@@ -128,11 +118,7 @@ const Products = () => {
           </div>
           <div
             onClick={() => {
-              navigate(
-                `/categories?query=${encodeURIComponent(
-                  "Smart GPU with AI Camera"
-                )}`
-              );
+              navigate(`/categories/smart-gpu-with-ai-camera`);
             }}
             className=" shadow-md hover:scale-105 p-5 cursor-pointer "
           >
@@ -141,6 +127,19 @@ const Products = () => {
             </div>
             <div className=" text-gray-500 flex text-center  mt-2 justify-center items-center">
               Hybrid Video Recorder
+            </div>
+          </div>
+          <div
+            className=" shadow-md hover:scale-105 p-5 cursor-pointer "
+            onClick={() => {
+              navigate(`/categories/ai-based-face-recognition`);
+            }}
+          >
+            <div className=" flex justify-center items-center">
+              <img className=" text-center h-20 w-20" src={face}></img>
+            </div>
+            <div className=" text-gray-500 flex justify-center items-center">
+              AI-Based Face Recognition Terminal
             </div>
           </div>
         </div>

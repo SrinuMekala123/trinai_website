@@ -215,7 +215,7 @@ export const productsall = [
     model: "AI02B030L67-28(40)F-LS",
     brand: "TRINAI",
     cameraType: "Bullet",
-    picture: "Newimages/AI04B030L67-28(40)F-LS.png",
+    picture: "/Newimages/AI04B030L67-28(40)F-LSWL.png",
     mp: "2",
     name: "2MP HD Bullet Camera",
     document: "Datadocumnets/AI02B030L67/AI02B030L67-28(40)F-LS.pdf",
@@ -435,7 +435,7 @@ export const productsall = [
     id: 3,
     model: "AI02B030L67-28(40)F-NS",
     brand: "TRINAI",
-    picture: "Newimages/AI02B030L67-28(40)F-NS.png",
+    picture: "/Newimages/AI02B030L67-28(40)F-NS.png",
     mp: "2",
     cameraType: "Bullet",
     name: "2MP HD Bullet Camera",
@@ -600,7 +600,7 @@ export const productsall = [
     cameraType: "Bullet",
     name: "3MP HD Bullet Camera",
     productType: "3MP HD Fixed IR Bullet Network Camera",
-    picture: "Newimages/AI02B030L67.png",
+    picture: "/Newimages/AI02B030L67.png",
     mp: "3",
     document: "Datadocumnets/AI02B030L67/AI03B030L67-28(40)F-LS.pdf",
     keyFeatures: [
@@ -823,7 +823,7 @@ export const productsall = [
     cameraType: "Bullet",
     name: "4MP HD Bullet Camera",
     productType: "4MP Mini Fixed Bullet Network Camera",
-    picture: "Newimages/AI04B030L67-28(40)F-LS.png",
+    picture: "/Newimages/AI04B030L67-28(40)F-LS.png",
     document: "Datadocumnets/AI02B030L67/AI04B030L67-28(40)F-LS.pdf",
     mp: "4",
     keyFeatures: [
@@ -1031,7 +1031,7 @@ export const productsall = [
     brand: "TRINAI",
     documents: "Datadocumnets/AI02B040L67/AI02B040L67.pdf",
     mp: "2",
-    picture: "Newimages/AI02B030L67.png",
+    picture: "/Newimages/AI02B030L67.png",
     productType:
       "2MP HD Intelligent LightHunter IR Fixed Bullet Network Camera",
     keyFeatures: [
@@ -1307,7 +1307,7 @@ export const productsall = [
     id: 7,
     model: "AI04IB040L67-28(40)F-LS",
     brand: "TRINAI",
-    picture: "Newimages/AI04IB080L67-40(60)F-LS.png",
+    picture: "/Newimages/AI04IB080L67-40(60)F-LS.png",
     mp: "4",
     cameraType: "Bullet",
     name: "4MP HD Bullet Camera",
@@ -1587,11 +1587,11 @@ export const productsall = [
   },
   {
     model: "AI05IB040L67-28(40)F-LS",
-    id: 8,
+    id: 5,
     brand: "TRINAI",
     cameraType: "Bullet",
-    name: "8MP HD Bullet Camera",
-    picture: "Newimages/AI05IB050L67-013F-LS.png",
+    name: "5MP HD Bullet Camera",
+    picture: "/Newimages/AI05IB050L67-013F-LS.png",
     mp: "5",
     documnet: "Datadocumnets/AI02B040L67/AI05IB040L67-28(40)F-LS.pdf",
     productType:
@@ -1875,7 +1875,7 @@ export const productsall = [
     cameraType: "Bullet",
     name: "8MP HD Bullet Camera",
     document: "Datadocumnets/AI02B040L67/AI08IB030L67-28(40)F-LS.pdf",
-    picture: "Newimages/AI04B030L67-28(40)F-LS.png",
+    picture: "/Newimages/AI04B030L67-28(40)F-LS.png",
     productType:
       "8MP HD Intelligent Light and Audible Warning Fixed Bullet Network Camera",
     keyFeatures: [
@@ -2158,7 +2158,7 @@ export const productsall = [
     mp: "2",
     cameraType: "Bullet",
     name: "2MP HD Bullet Camera",
-    picture: "Newimages/AI02B050L67-04MV.png",
+    picture: "/Newimages/AI02B050L67-04MV.png",
     document: "DataSheets/Data Sheets/AI02B050L67-04MV/AI02B050L67-04MV.pdf",
     productType: "2MP HD IR VF Bullet Network Camera",
     keyFeatures: [
@@ -2384,7 +2384,7 @@ export const productsall = [
     brand: "TRINAI",
     document:
       "/DataSheets/Data Sheets/AI02B050L67-04MV/AI02IB080L67-40(60)F-LS.pdf",
-    picture: "Newimages/AI04IB080L67-40(60)F-LS.png",
+    picture: "/Newimages/AI04IB080L67-40(60)F-LS.png",
     id: 11,
     cameraType: "Bullet",
     name: "2MP HD Bullet Camera",
@@ -2631,7 +2631,7 @@ export const productsall = [
     name: "4MP HD Bullet Camera",
     productType: "4MP HD IR Bullet Network Camera",
     id: 13,
-    picture: "Newimages/AI04IB080L67-40(60)F-LS.png",
+    picture: "/Newimages/AI04IB080L67-40(60)F-LS.png",
     mp: "4",
     document: "DataSheets/Data Sheets/AI02B050L67-04MV/AI04B050L67-012F-LS.pdf",
     keyFeatures: [
@@ -2841,7 +2841,7 @@ export const productsall = [
     mp: "4",
     document:
       "DataSheets/Data Sheets/AI02B050L67-04MV/AI04IB080L67-40(60)F-LS.pdf",
-    picture: "Newimages/AI04IB080L67-40(60)F-LS.png",
+    picture: "/Newimages/AI04IB080L67-40(60)F-LS.png",
     id: 13,
     cameraType: "Bullet",
     name: "4MP HD Bullet Camera",
@@ -3350,7 +3350,7 @@ export const productsall = [
     mp: "5",
     cameraType: "Bullet",
     name: "5MP HD Bullet Camera",
-    picture: "Newimages/AI05B050L67.png",
+    picture: "/Newimages/AI05B050L67.png",
     document:
       "DataSheets/Data Sheets/AI02B050L67-04MV/AI05IB080L67-40(60)F-LS.pdf",
     brand: "TRINAI",
@@ -3604,7 +3604,7 @@ export const productsall = [
   {
     model: "AI02B050L67-05MV",
     brand: "TRINAI",
-    picture: "Newimages/AI02B050L67-05MV.png",
+    picture: "/Newimages/AI02B050L67-05MV.png",
     mp: "2",
     id: 16,
     cameraType: "Bullet",
@@ -3825,7 +3825,7 @@ export const productsall = [
     model: "AI02IB050L67-05MV-013F-LS",
     id: 17,
     brand: "TRINAI",
-    picture: "Newimages/AI05IB050L67-013F-LS.png",
+    picture: "/Newimages/AI05IB050L67-013F-LS.png",
     mp: "2",
     cameraType: "Bullet",
     name: "2MP HD Bullet Camera",
@@ -4050,7 +4050,7 @@ export const productsall = [
     id: 18,
     cameraType: "Bullet",
     name: "4MP HD Bullet Camera",
-    picture: "Newimages/AI05IB050L67-013F-LS.png",
+    picture: "/Newimages/AI05IB050L67-013F-LS.png",
     document:
       "DataSheets/Data Sheets/AI02D040L67-05MV/AI05ID040L67-013F-LS.pdf",
     productType: "4MP HD Intelligent LightHunter IR VF Bullet Network Camera",
@@ -4279,7 +4279,7 @@ export const productsall = [
     id: 19,
     cameraType: "Bullet",
     name: "5MP HD Bullet Camera",
-    picture: "Newimages/AI05IB050L67-013F-LS.png",
+    picture: "/Newimages/AI05IB050L67-013F-LS.png",
     document:
       "DataSheets/Data Sheets/AI02B050L67-05MV/AI05IB050L67-013F-LS.pdf",
     productType: "5MP HD Intelligent LightHunter IR VF Bullet Network Camera",
@@ -4513,7 +4513,7 @@ export const productsall = [
   {
     model: "AI08IB050L67-012F-LS",
     brand: "TRINAI",
-    picture: "Newimages/AI05IB050L67-013F-LS.png",
+    picture: "/Newimages/AI05IB050L67-013F-LS.png",
     mp: "8",
     id: 20,
     cameraType: "Bullet",
@@ -4745,13 +4745,13 @@ export const productsall = [
   },
   {
     model: "AI02D030L67",
-    picture: "Newimages/AI02D030L67.png",
+    picture: "/Newimages/AI02D030L67.png",
     mp: "2",
     id: 21,
     document: "DataSheets/Data Sheets/AI02D030L67/AI02D030L67.pdf",
     brand: "TRINAI",
     cameraType: "Eyeball",
-    name: "2MP EyeBall Camera",
+    name: "2MP Eyeball Camera",
     productType: "2MP HD IR Fixed Eyeball Network Camera",
     keyFeatures: [
       'High quality image with 2MP, 1/2.7" CMOS sensor',
@@ -4961,11 +4961,11 @@ export const productsall = [
   },
   {
     model: "AI04ID030L67-28(40)F-LS",
-    picture: "Newimages/AI08ID030L67-28(40)F-LS.png",
+    picture: "/Newimages/AI08ID030L67-28(40)F-LS.png",
     mp: "4",
     id: 22,
     cameraType: "Eyeball",
-    name: "4MP EyeBall Camera",
+    name: "4MP Eyeball Camera",
     document: "DataSheets/Data Sheets/AI02D030L67/AI04ID030L67-28(40)F-LS.pdf",
     brand: "TRINAI",
     productType:
@@ -5191,8 +5191,8 @@ export const productsall = [
     mp: "5",
     id: 23,
     cameraType: "Eyeball",
-    name: "5MP EyeBall Camera",
-    picture: "Newimages/AI08ID030L67-28(40)F-LS.png",
+    name: "5MP Eyeball Camera",
+    picture: "/Newimages/AI08ID030L67-28(40)F-LS.png",
     document: "DataSheets/Data Sheets/AI02D030L67/AI05ID030L67-28(40)F-LS.pdf",
     productType:
       "5MP HD Intelligent LightHunter IR Fixed Eyeball Network Camera",
@@ -5415,11 +5415,11 @@ export const productsall = [
   {
     model: "AI08ID030L67-28(40)F-LS",
     brand: "TRINAI",
-    picture: "Newimages/AI08ID030L67-28(40)F-LS.png",
+    picture: "/Newimages/AI08ID030L67-28(40)F-LS.png",
     mp: "8",
     id: 24,
     cameraType: "Eyeball",
-    name: "8MP EyeBall Camera",
+    name: "8MP Eyeball Camera",
     document: "DataSheets/Data Sheets/AI02D030L67/AI08ID030L67-28(40)F-LS.pdf",
     productType: "8MP HD Intelligent LightHunter Fixed Eyeball Network Camera",
     keyFeatures: [
@@ -5656,7 +5656,7 @@ export const productsall = [
     id: "23",
     cameraType: "Dome",
     name: "2MP Dome Camera",
-    picture: "Newimages/AI02D040L67-05MV.png",
+    picture: "/Newimages/AI02D040L67-05MV.png",
     document: "DataSheets/Data Sheets/AI02D040L67-05MV/AI02D040L67-05MV.pdf",
     productType: "2MP HD Intelligent LightHunter IR VF Dome Network Camera",
     keyFeatures: [
@@ -5889,8 +5889,8 @@ export const productsall = [
     mp: "2",
     id: 24,
     cameraType: "Eyeball",
-    name: "2MP EyeBall Camera",
-    picture: "Newimages/AI02D040L67-012F-LS.png",
+    name: "2MP Eyeball Camera",
+    picture: "/Newimages/AI02D040L67-012F-LS.png",
     document: "DataSheets/Data Sheets/AI02D040L67-05MV/AI02D040L67-012F-LS.pdf",
     productType: "2MP HD IR VF Dome Network Camera",
     keyFeatures: [
@@ -6120,9 +6120,9 @@ export const productsall = [
     id: 25,
     document:
       "DataSheets/Data Sheets/AI02D040L67-05MV/AI02ID040L67-05MV-013F-LS.pdf",
-    picture: "Newimages/AI02D040L67-012F-LS.png",
+    picture: "/Newimages/AI02D040L67-012F-LS.png",
     cameraType: "Eyeball",
-    name: "2MP EyeBall Camera",
+    name: "2MP Eyeball Camera",
     productType: "2MP HD Intelligent LightHunter IR VF Dome Network Camera",
     keyFeatures: [
       'High quality image with 2MP, 1/2.8" CMOS sensor',
@@ -6360,7 +6360,7 @@ export const productsall = [
     model: "AI05D040L67-012F-LS",
     brand: "TRINAI",
     cameraType: "Eyeball",
-    name: "5MP EyeBall Camera",
+    name: "5MP Eyeball Camera",
     productType: "5MP HD IR VF Dome Network Camera",
     keyFeatures: [
       'High quality image with 5MP, 1/2.7" CMOS sensor',
@@ -6586,14 +6586,14 @@ export const productsall = [
   },
   {
     id: 27,
-    picture: "Newimages/AI08ID030L67-28(40)F-LS.png",
+    picture: "/Newimages/AI08ID030L67-28(40)F-LS.png",
     document:
       "DataSheets/Data Sheets/AI02D040L67-05MV/AI05ID040L67-013F-LS.pdf",
     mp: "5",
     model: "AI05ID040L67-013F-LS",
     brand: "TRINAI",
     cameraType: "Eyeball",
-    name: "5MP EyeBall Camera",
+    name: "5MP Eyeball Camera",
     productType: "5MP HD Intelligent LightHunter IR VF Dome Network Camera",
     keyFeatures: [
       'High quality image with 5MP, 1/2.7" CMOS sensor',
@@ -6835,13 +6835,13 @@ export const productsall = [
   {
     mp: "8",
     id: "27",
-    picture: "Newimages/AI08ID030L67-28(40)F-LS.png",
+    picture: "/Newimages/AI08ID030L67-28(40)F-LS.png",
     document:
       "DataSheets/Data Sheets/AI02D040L67-05MV/AI08ID040L67-012F-LS.pdf",
     model: "AI08ID040L67-012F-LS",
     brand: "TRINAI",
     cameraType: "Eyeball",
-    name: "8MP EyeBall Camera",
+    name: "8MP Eyeball Camera",
     productType: "8MP HD Intelligent LightHunter IR VF Dome Network Camera",
     keyFeatures: [
       'High quality image with 8MP, 1/2.8" CMOS sensor',
@@ -7081,7 +7081,7 @@ export const productsall = [
   },
   {
     id: 28,
-    picture: "Newimages/AI02P150L66-33MV.png",
+    picture: "/Newimages/AI02P150L66-33MV.png",
     mp: "2",
     document:
       "/DataSheets/Data Sheets/AI02P150L66-33MV/AI02P150L66-25MV-125F-LS.pdf",
@@ -7277,7 +7277,7 @@ export const productsall = [
   },
   {
     id: 29,
-    picture: "Newimages/AI02P150L66-33MV.png",
+    picture: "/Newimages/AI02P150L66-33MV.png",
     mp: "2",
     document: "DataSheets/Data Sheets/AI02P150L66-33MV/AI02P150L66-33MV.pdf",
     model: "AI02P150L66-33MV",
@@ -7478,7 +7478,7 @@ export const productsall = [
   },
   {
     id: 30,
-    picture: "Newimages/AI02P250L66-45MV.png",
+    picture: "/Newimages/AI02P250L66-45MV.png",
     mp: "4",
     document:
       "DataSheets/Data Sheets/AI02P150L66-33MV/AI04P150L66-33MV-148F-LS.pdf",
@@ -7862,7 +7862,7 @@ export const productsall = [
   },
   {
     id: "32",
-    picture: "Newimages/AI02P150L66-33MV.png",
+    picture: "/Newimages/AI02P150L66-33MV.png",
     mp: "4",
     document:
       "DataSheets/Data Sheets/AI02P250L66-45MV/AI04P030L67-28(40)F-LS.pdf",
@@ -7988,7 +7988,7 @@ export const productsall = [
     id: 32,
     model: "AI04P250L66-40MV-228F-LS",
     brand: "TRINAI",
-    picture: "Newimages/AI02P150L66-33MV.png",
+    picture: "/Newimages/AI02P150L66-33MV.png",
     mp: "4",
     cameraType: "PTZ",
     name: "4MP PTZ Camera",
@@ -8179,7 +8179,7 @@ export const productsall = [
   },
   {
     id: 33,
-    picture: "Newimages/AI02P150L66-33MV.png",
+    picture: "/Newimages/AI02P150L66-33MV.png",
     mp: "2",
     document:
       "DataSheets/Data Sheets/AI04P100L67-25MV/AI02P150L66-33MV-148F-LS.pdf",
@@ -8377,7 +8377,7 @@ export const productsall = [
   },
   {
     id: 34,
-    picture: "Newimages/AI04P100L67-25MV.png",
+    picture: "/Newimages/AI04P100L67-25MV.png",
     mp: "4",
     document:
       "public/DataSheets/Data Sheets/AI04P100L67-25MV/AI04P100L67-25MV.pdf",
@@ -8573,7 +8573,7 @@ export const productsall = [
   },
   {
     id: 35,
-    picture: "Newimages/AI02B030L67-28(40)F-NS.png",
+    picture: "/Newimages/AI02B030L67-28(40)F-NS.png",
     mp: "2",
     document: "DataSheets/Data Sheets/AI05B050L67/AI02B030L67-28(40)F-LSWL.pdf",
     model: "AI02B030L67-28(40)F-LSWL",
@@ -8784,7 +8784,7 @@ export const productsall = [
   },
   {
     id: 36,
-    picture: "Newimages/AI02B030L67-28(40)F-NS.png",
+    picture: "/Newimages/AI02B030L67-28(40)F-NS.png",
     mp: "4",
     document: "DataSheets/Data Sheets/AI05B050L67/AI04B050L67-28(40)F-LS.pdf",
     model: "AI04B030L67-28(40)F-LSWL",
@@ -8999,7 +8999,7 @@ export const productsall = [
 
   {
     id: 37,
-    picture: "Newimages/AI02B030L67-28(40)F-NS.png",
+    picture: "/Newimages/AI02B030L67-28(40)F-NS.png",
     mp: "5",
     document: "DataSheets/Data Sheets/AI05B050L67/AI04B050L67-28(40)F-LS.pdf",
     brand: "TRINAI",
@@ -9414,7 +9414,7 @@ export const productsall = [
   },
   {
     id: 39,
-    picture: "Newimages/AI05B050L67.png",
+    picture: "/Newimages/AI05B050L67.png",
     mp: "8",
     document: "DataSheets/Data Sheets/AI05B050L67/AI08B050L67-28(40)F-LS.pdf",
     brand: "TRINAI",
@@ -9627,10 +9627,10 @@ export const productsall = [
     id: 40,
     cameraType: "Network",
     brand: "TRINAI",
-    name: "16/32/64-channel input NVR",
+    name: "16 32 64 Channel Input Nvr",
     document: "/Datadocumnets/nvr/AI16-32(04)-RG.pdf",
     tagline: "Vision With Intelligence",
-    picture: "Newimages/AI16-32(04)-RG.png",
+    picture: "/Newimages/AI16-32(04)-RG.png",
     product: "Network Video Recorder",
     certifications: ["FCC", "CE", "ROHS", "BIS"],
     model: "AI16-32-64(08)-RG",
@@ -9844,8 +9844,8 @@ export const productsall = [
     id: 41,
     brand: "TRINAI",
     cameraType: "Network",
-    picture: "Newimages/AI16-32(04)-RG.png",
-    name: "16/32-Channel Input NVR",
+    picture: "/Newimages/AI16-32(04)-RG.png",
+    name: "16 32 Channel Input Nvr",
     document: "/Datadocumnets/nvr/AI16-32(04)-RG.pdf",
     tagline: "Vision With Intelligence",
     product: "Network Video Recorder",
@@ -10032,8 +10032,9 @@ export const productsall = [
     product: "Server",
     name: "Server",
     certificate: "ROHS",
+    cameraType: "Server",
     document: "/Datadocumnets/server/server.pdf",
-    picture: "Newimages/Trinai Server.png",
+    picture: "/Newimages/Trinai Server.png",
     keyFeatures: [
       "Stability: Linux OS, dual-BIOS, redundant power, two-server hot standby",
       "Compatibility: Third-party IP Cameras supported with standard ONVIF and RTSP",
@@ -10418,6 +10419,28 @@ export const productsall = [
     surgeProtection: "4KV",
     ingressProtection: "IP67",
     resetButton: "N/A",
+  },
+  {
+    id: 44,
+    model: "TrinAI-TN50",
+    picture: "/Newimages/TrinAI-TN50 (1).png",
+    cameraType: "Ai",
+    name: "AI-Based Face Recognition Terminal",
+    mp: "2",
+    document: "Datadocumnets/face_recognition/trinAI-TN50 datasheet.pdf",
+    brand: "TRINAI",
+    productType: "AI-Based Face Recognition Terminal",
+    keyFeatures: [
+      "AI engine for fast and accurate face recognition",
+      "Dual HD camera (IR + RGB) for spoof detection",
+      "Touch screen-based user interface (5-inch)",
+      "High-performance embedded Linux system",
+      "Real-time user verification in under 1 second",
+      "Works under challenging lighting and environmental conditions",
+      "Scalable for large user databases",
+      "Ideal for public service, telecom, financial, and access control applications",
+      "Support Aadhaar Authentication",
+    ],
   },
 ];
 export default productsall;
