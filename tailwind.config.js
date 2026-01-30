@@ -15,6 +15,9 @@ export default {
       animation: {
         meteor: "meteor 10s linear infinite",
       },
+      fontFamily: {
+        sf: ["SF Pro Display", "sans-serif"],
+      },
       keyframes: {
         meteor: {
           "0%": { transform: "translateY(-20%)" },

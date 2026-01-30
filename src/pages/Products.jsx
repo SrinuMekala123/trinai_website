@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { ScrollTop } from "primereact/scrolltop";
 import Extra from "../components/Extra";
 import face from "../images/facial-recognition (1).png";
+import display from "../images/display.png"
 
 const Products = () => {
   useEffect(() => {
@@ -140,6 +141,20 @@ const Products = () => {
             </div>
             <div className=" text-gray-500 flex justify-center items-center">
               AI-Based Face Recognition Terminal
+            </div>
+          </div>
+
+           <div
+            className=" shadow-md hover:scale-105 p-5 cursor-pointer "
+            onClick={() => {
+              navigate(`/categories/display`);
+            }}
+          >
+            <div className=" flex justify-center items-center">
+              <img className=" text-center h-20 w-20" src={display}></img>
+            </div>
+            <div className=" text-gray-500 flex justify-center items-center">
+              Display
             </div>
           </div>
         </div>

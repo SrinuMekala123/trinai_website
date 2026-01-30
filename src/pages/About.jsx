@@ -146,8 +146,8 @@ const About = () => {
         TRINAI is a comprehensive surveillance ecosystem that integrates:
       </motion.div>
 
-      <div className="lg:p-10">
-        <div className="p-5">
+      {/* <div className="lg:p-10"> */}
+      {/* <div className="p-5">
           <div
             className="lg:grid border shadow shadow-whit10
                 
@@ -224,19 +224,19 @@ const About = () => {
               </div>
             </motion.div>
           </div>
-        </div>
+        </div> */}
 
-        <div className=" p-5 "></div>
+      {/* <div className=" p-5 "></div> */}
 
-        <motion.div
+      {/* <motion.div
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
           className=" flex justify-center text-gray-500 items-center font-thin text-3xl p-3 font-bold "
         >
           ADVANCED SECURITY AND SURVEILLANCE SOLUTIONS
-        </motion.div>
-      </div>
+        </motion.div> */}
+      {/* </div> */}
 
       <div className="lg:p-10">
         <div className="p-5">
@@ -272,7 +272,7 @@ const About = () => {
               </div>
 
               <div className=" text-start mx-2 mt-5 text-gray-500 text-xl">
-                <div className="flex">
+                {/* <div className="flex">
                   <div>
                     <TiTick color="" className="text-orange-600" size={25} />
                   </div>
@@ -280,7 +280,7 @@ const About = () => {
                     100% Make in India – Designed, developed, and manufactured
                     locally.
                   </div>
-                </div>
+                </div> */}
 
                 <div className="flex">
                   <div>

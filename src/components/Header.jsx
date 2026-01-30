@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../images/trinai-02.png";
 import logo1 from "../images/trinai white 1 (1).png";
+import logo3 from "../images/logo/logo3.png";
+import logo4 from "../images/logo/logo5.png";
 import gpu from "../images/gpu.png";
 import bullet from "../images/AI02B030L67-28(40)F-NS.png";
 import dome from "../images/AI02D040L67-05MV.png";
@@ -11,6 +13,7 @@ import server from "../images/Trinai Server.png";
 import nvr from "../images/nvr.png";
 import thermal from "../images/thermal-camera.png";
 import aifacerecognition from "../images/TrinAI-TN50 (1).png";
+import display from "../images/display1.png";
 
 const categories = [
   //   "HD CCTV Camera",
@@ -26,6 +29,7 @@ const categories = [
   "Server",
   "Smart GPU with AI Camera",
   "AI-Based Face Recognition",
+  "Display",
   //   "WiFi Smart",
 ];
 
@@ -99,6 +103,11 @@ const productsByCategory = {
       image:
         "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
     },
+    {
+      name: "Mini Dome-Internal Camera (720P)",
+      image:
+        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
+    },
   ],
 
   "PTZ Cameras": [
@@ -121,6 +130,11 @@ const productsByCategory = {
     },
     {
       name: "16/32/64-channel input NVR",
+      image:
+        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
+    },
+    {
+      name: "MDVR",
       image:
         "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
     },
@@ -165,6 +179,12 @@ const productsByCategory = {
         "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
     },
   ],
+  Display: [
+    {
+      name: "Display",
+      image: display,
+    },
+  ],
   "WiFi Smart": [
     {
       name: "WiFi Smart Indoor Camera",
@@ -196,6 +216,7 @@ const categoryImages = {
     "http://trinai.in/Images/Poe%20Switches/4%20port%20poe.png",
   "Smart GPU with AI Camera": gpu,
   "AI-Based Face Recognition": aifacerecognition,
+  Display: display,
   "WiFi Smart":
     "https://img.freepik.com/free-psd/router-isolated-transparent-background_191095-24268.jpg?uid=P7856354&ga=GA1.1.1780034646.1729582102&semt=ais_hybrid",
 };
@@ -257,10 +278,29 @@ const Header = () => {
         isScrolled ||
         isCategoriesOpen ||
         location.pathname === "/cemaradetails" ||
-        location.pathname === "/viewproducts"
+        location.pathname === "/viewproducts" ||
+        location.pathname === "/security/motion-detection" ||
+        location.pathname === "/security/facial-recognition" ||
+        location.pathname === "/security/remote-monitoring" ||
+        location.pathname === "/security/crowd-monitoring" ||
+        location.pathname === "/security/lpr" ||
+        location.pathname === "/security/pid" ||
+        location.pathname === "/security/bac" ||
+        location.pathname === "/security/rfid-entry" ||
+        location.pathname === "/security/public-event-security" ||
+        location.pathname === "/security/qms" ||
+        location.pathname === "/security/people-counting" ||
+        location.pathname === "/security/atm-security" ||
+        location.pathname === "/security/warehouse-surveillance" ||
+        location.pathname === "/security/asset-tracking" ||
+        location.pathname === "/security/server-monitoring" ||
+        location.pathname === "/security/ppe-detection" ||
+        location.pathname === "/security/fire-smoke" ||
+        location.pathname === "/security/emergency-response" ||
+        location.pathname === "/security/real-time-hazard"
           ? "bg-white shadow-lg text-black fixed top-0 left-0 right-0 "
           : "bg-transparent text-white fixed top-0 left-0 right-0 "
-      } w-full px-4 transition-all duration-300 z-50 flex items-center justify-around pt-5`}
+      } w-full lg:px-14 transition-all duration-300 z-50 flex items-center px-2 justify-between pt-5 `}
     >
       {/* Mega menu section */}
       {isCategoriesOpen && (
@@ -356,18 +396,48 @@ const Header = () => {
               location.pathname === "/viewproducts" ||
               isScrolled ||
               location.pathname === "/cemaradetails" ||
+              location.pathname === "/security/motion-detection" ||
+              location.pathname === "/security/facial-recognition" ||
+              location.pathname === "/security/remote-monitoring" ||
+              location.pathname === "/security/crowd-monitoring" ||
+              location.pathname === "/security/lpr" ||
+              location.pathname === "/security/pid" ||
+              location.pathname === "/security/bac" ||
+              location.pathname === "/security/rfid-entry" ||
+              location.pathname === "/security/public-event-security" ||
+              location.pathname === "/security/qms" ||
+              location.pathname === "/security/people-counting" ||
+              location.pathname === "/security/atm-security" ||
+              location.pathname === "/security/warehouse-surveillance" ||
+              location.pathname === "/security/asset-tracking" ||
+              location.pathname === "/security/server-monitoring" ||
+              location.pathname === "/security/ppe-detection" ||
+              location.pathname === "/security/fire-smoke" ||
+              location.pathname === "/security/emergency-response" ||
+              location.pathname === "/security/real-time-hazard" ||
               isCategoriesOpen
-                ? logo
-                : logo1
+                ? logo4
+                : logo3
             }
             alt="Company Logo"
-            className="h-16 w-auto"
+            className="h-10 lg:h-20 md:h-14 w-auto"
           />
         </Link>
       </div>
 
       {/* Desktop Navigation */}
-      <nav className="hidden md:flex space-x-5 lg:space-x-12">
+      <nav className="hidden md:flex  space-x-5 lg:space-x-12">
+        {/* <Link
+          to="/"
+          className={`hover:text-blue-500 px-5 hover:bg-gradient-to-br hover:from-blue-50 hover:to-teal-50 rounded-md    text-xl font-bold ${
+            location.pathname === "/"
+              ? "text-blue-500 bg-gradient-to-br from-blue-50 to-teal-50"
+              : ""
+          }`}
+        >
+          Home
+        </Link> */}
+
         <Link
           to="/"
           className={`hover:text-orange-600  text-xl font-bold ${
@@ -387,12 +457,12 @@ const Header = () => {
 
         {/* Categories Hover Trigger */}
         <div
-          className="relative group pb-10"
+          className="relative group "
           onMouseEnter={() => setIsCategoriesOpen(true)}
           onMouseLeave={() => setIsCategoriesOpen(false)}
         >
           <div
-            className={`hover:text-orange-600 cursor-pointer text-xl font-bold ${
+            className={`hover:text-orange-600  pb-8 cursor-pointer text-xl font-bold ${
               location.pathname === "/categories" ? "text-orange-600" : ""
             }`}
             onClick={() => {

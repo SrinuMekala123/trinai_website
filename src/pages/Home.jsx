@@ -152,7 +152,7 @@ const Home = () => {
                 Welcome to TRINAI
               </h2>
               <p className="text-lg md:text-2xl mt-4">
-                The Future of Smart Surveillance in INDIA
+                The Future of Smart Surveillance
               </p>
             </motion.div>
           </div>

@@ -5,10 +5,18 @@ import { Image } from "antd";
 import Senario from "../components/Secondsollution";
 import Solutionfunction from "../components/Thirdsollution";
 import { ScrollTop } from "primereact/scrolltop";
+import Vms from "../components/vms";
+import SmartBusPage from "../components/Smartbus";
+import Smartbus from "../components/Smartbuspage";
+import BusFeatureInteractive from "../components/clickable";
+import Whatweoffer from "../components/whatweoffer";
+import Transport from "../components/Transport";
+import Whychooseus from "../components/Whychooseus";
+import Securitysolutions from "../components/Securitysolutions";
 
 function Solutions() {
   const [selectedIndustry, setSelectedIndustry] = useState(
-    solutionsByIndustry[0]
+    solutionsByIndustry[0],
   );
 
   useEffect(() => {
@@ -19,7 +27,7 @@ function Solutions() {
     <div className="sollution_maincontainer text-gray-500">
       <div className="relative w-full">
         <img
-          className="w-full h-[250px] md:h-[500px] lg:h-[700px] object-cover"
+          className="w-full h-[250px] md:h-[500px] lg:h-[350px] object-cover"
           src={sollutionbanner}
           alt="dfgh"
         />
@@ -57,8 +65,9 @@ function Solutions() {
           </div>
 
           {/* Display Selected Industry Solutions */}
+          {/* Display Selected Industry Solutions */}
           <div className="p-4 border rounded-lg shadow-lg bg-white">
-            <img
+            {/* <img
               src={selectedIndustry.image}
               alt={selectedIndustry.industry}
               className="w-[600px] mx-auto h-60 object-cover rounded-md"
@@ -69,28 +78,49 @@ function Solutions() {
             </h2>
             <p className="text-sm text-gray-600">
               {selectedIndustry.description}
-            </p>
+            </p> */}
 
-            <ul className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-4">
-              {selectedIndustry.solutions.map((solution, i) => (
-                <li
-                  key={i}
-                  className="flex items-center space-x-3 p-3 border rounded-md shadow-sm bg-gray-100"
-                >
-                  <Image
-                    src={solution.image}
-                    alt={solution.name}
-                    className="w-12 h-12 rounded-md"
-                  />
-                  <div>
-                    <h3 className="text-md font-semibold">{solution.name}</h3>
-                    <p className="text-xs text-gray-500">
-                      {solution.description}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            {/* Conditional VMS Component */}
+            {selectedIndustry.industry === "Trinai VMS" && (
+              <div className="my-6">
+                <Vms />
+                {/* <Whychooseus /> */}
+              </div>
+            )}
+            {selectedIndustry.industry === "Transport" && (
+              <div className="my-6">
+                <Transport />
+
+                {/* <Smartbus /> */}
+                {/* <Whatweoffer /> */}
+              </div>
+            )}
+
+            {selectedIndustry.industry !== "Trinai VMS" &&
+              selectedIndustry.industry !== "Transport" && (
+                <ul className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {selectedIndustry.solutions.map((solution, i) => (
+                    <li
+                      key={i}
+                      className="flex items-center space-x-3 p-3 border rounded-md shadow-sm bg-gray-100"
+                    >
+                      <Image
+                        src={solution.image}
+                        alt={solution.name}
+                        className="w-12 h-12 rounded-md"
+                      />
+                      <div>
+                        <h3 className="text-md font-semibold">
+                          {solution.name}
+                        </h3>
+                        <p className="text-xs text-gray-500">
+                          {solution.description}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              )}
           </div>
         </div>
       </div>
@@ -100,6 +130,15 @@ function Solutions() {
       <div className="sollution_function">
         <Solutionfunction />
       </div>
+
+      <div className="Solution_by_scenario bg-slate-200 h-full p-6">
+        <div className="main_heading text-center mb-5">
+          <h1 className="font-bold text-4xl">Security Solutions</h1>
+        </div>
+
+        <Securitysolutions />
+      </div>
+
       <div className="bg-red-500">
         <ScrollTop
           target="window"

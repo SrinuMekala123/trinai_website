@@ -56,9 +56,15 @@ const Categories = () => {
     const typekeyword = formatCameraTitle(type)?.split(" ")[0];
     const thermalkeyword = formatCameraTitle(name)?.split(" ")[0];
     const facerecognition = formatCameraTitle(name)?.split(" ")[0];
+
+    
     // alert(facerecognition);
 
     // alert(thermalkeyword);
+
+
+    // alert(formatCameraTitle(name))
+
 
     if (name) {
       if (
@@ -90,7 +96,6 @@ const Categories = () => {
         setProducts(products);
       }
     } else if (type) {
-      // alert(typekeyword);
 
       const filteredProducts = mainproducts
         .filter((product) => product.cameraType === typekeyword)
@@ -117,12 +122,20 @@ const Categories = () => {
         <div className="relative z-10 flex items-center justify-center h-full">
           {name ? (
             <h1 className="text-white text-4xl font-bold">
-              {formatCameraTitle(name)}
+
+              {
+                name==="mdvr" ? formatCameraTitle(name).toUpperCase():formatCameraTitle(name)
+              }
+            
+
+              {/* {formatCameraTitle(name)} */}
+
               {!(
                 name?.endsWith("ras") ||
                 name?.startsWith("smart") ||
                 name?.startsWith("server") ||
-                name?.startsWith("ai-based")
+                name?.startsWith("ai-based")  ||
+                name?.startsWith("mini")             
               ) && "'s"}
             </h1>
           ) : (
@@ -148,7 +161,7 @@ const Categories = () => {
             {products.map((product, index) => (
               <div
                 key={index}
-                className=" border p-2 rounded-lg font-semibold "
+                className="border p-2 rounded-lg font-semibold "
               >
                 {/* <div className=" text-center">{product.model}</div> */}
                 <div className=" min-h-52 flex justify-center items-center">
@@ -169,11 +182,14 @@ const Categories = () => {
                 </div>
                 <hr />
 
+                
+
                 {type && (
                   <div className="bg-white text-orange-600 p-2">
                     {type === "network-video-recorder" ||
-                    type === "server" ||
-                    type === "ai-based-face-recognition" ? (
+                    type === "server" || 
+                    type === "ai-based-face-recognition" ||
+                    type === "display" ? (
                       ""
                     ) : (
                       <span>{product.mp}MP</span>

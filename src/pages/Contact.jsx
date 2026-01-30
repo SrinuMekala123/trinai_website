@@ -10,7 +10,7 @@ import {
   FaPinterest,
 } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
-import { FaLocationDot } from "react-icons/fa6";
+import { FaLocationDot, FaMapLocationDot } from "react-icons/fa6";
 import { ScrollTop } from "primereact/scrolltop";
 import trinai5 from "../images/trinai-5.jpg";
 import { Icon } from "@mui/material";
@@ -334,13 +334,13 @@ const Contact = () => {
         {/* Right Section (Contact Details) */}
         <div className="lg:p-10 mt-3">
           <div className="bg-slate-200 px-10 py-5 rounded-lg flex flex-col gap-5">
-            <div>
+            <div className=" flex flex-col gap-3">
               <h3 className="text-2xl font-bold">Address</h3>
-              <div>
+              {/* <div>
                 <div className=" font-bold text-gray-500">
                   Registered Office
                 </div>
-                <div className="flex items-center gap-3 mt-2">
+                <div className="flex items-center gap-3 mt-1">
                   <div className="text-orange-600">
                     <FaLocationDot />
                   </div>
@@ -348,12 +348,24 @@ const Contact = () => {
                     Shangrila Plaza, Banjara Hills, Hyderabad, Telangana-500034
                   </p>
                 </div>
-              </div>
+              </div> */}
               <div className=" mt-2">
+                <div className=" font-bold text-gray-500"> Office Address</div>
+                <div className="flex  gap-3 mt-1">
+                  <div className="text-orange-600 mt-1">
+                    <FaMapLocationDot />
+                  </div>
+                  <p className="text-black text-md font-thin">
+                    House number 15 , Bloomingdale villa , Al Hebiah Fourth,
+                    Dubai Sports City, Dubai, United Arab Emirates
+                  </p>
+                </div>
+              </div>
+              {/* <div className=" mt-2">
                 <div className=" font-bold text-gray-500">
                   Manufacturing Unit
                 </div>
-                <div className="flex  gap-3 mt-2">
+                <div className="flex  gap-3 mt-1">
                   <div className="text-orange-600 mt-1">
                     <MdPrecisionManufacturing />
                   </div>
@@ -362,7 +374,7 @@ const Contact = () => {
                     Bollaram, Siddipet, TS- 502279
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
             {/* <ContactDetail
               icon={<FaLocationDot />}
@@ -372,13 +384,13 @@ const Contact = () => {
             <ContactDetail
               icon={<IoMdMail />}
               title="Mail us"
-              text="trinai@brihaspathi.com"
+              text="info@trinai.ae"
             />
-            <ContactDetail
+            {/* <ContactDetail
               icon={<MdCall />}
               title="Call us"
               text="+91 9885888835"
-            />
+            /> */}
             <div>
               <h3 className="text-2xl font-bold">Follow us on social media</h3>
               <div className="flex gap-10 mt-2">
@@ -415,7 +427,7 @@ const Contact = () => {
 
       {/* Google Maps */}
       <div className="lg:p-20 md:p-5 p-5 bg-slate-50 text-gray-500">
-        <iframe
+        {/* <iframe
           className=" rounded-md"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.711194228244!2d78.417589310894!3d17.425642201632733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb98ee53f272eb%3A0x9d0e4f397c0bbaa9!2sBrihaspathi%20Technologies%20Limited!5e0!3m2!1sen!2sin!4v1742625400376!5m2!1sen!2sin"
           width="100%"
@@ -424,6 +436,16 @@ const Contact = () => {
           // allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
+        ></iframe> */}
+
+        <iframe
+          className="rounded-md"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.884899408875!2d55.206542799999994!3d25.0379799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6d006d0d4223%3A0x1cd3f109788ad752!2sBarchit!5e0!3m2!1sen!2sin!4v1769067703913!5m2!1sen!2sin"
+          width="100%"
+          height="400"
+          style={{ border: 0 }}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
 
@@ -452,12 +474,9 @@ const ContactDetail = ({ icon, title, text }) => (
 );
 
 // Reusable Component for Social Icons
-const SocialIcon = ({ href }) => (
+const SocialIcon = ({ href, Icon }) => (
   <a href={href} target="_blank" rel="noopener noreferrer">
-    <Icon
-      className="text-orange-600 hover:text-gray-500 cursor-pointer"
-      size={20}
-    />
+    <Icon className="text-orange-600 hover:text-gray-500 cursor-pointer text-xl" />
   </a>
 );
 
