@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { ScrollTop } from "primereact/scrolltop";
 import {
   Sun,
   Moon,
@@ -435,10 +436,16 @@ function Smartbus() {
                 </div> */}
             </div>
             <div className="relative">
-              <img
+              {/* <img
                 src={Intelligent}
                 alt="Modern city buses with AI technology"
                 className="rounded-2xl shadow-2xl w-full"
+              /> */}
+              <img
+                src="https://ik.imagekit.io/e7pijyscb/Trinai%20home%20banner/Untitled%20design%20(2)%20(1).jpg"
+                alt="Modern city buses with AI technology"
+                className="rounded-2xl shadow-2xl w-full"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent rounded-2xl"></div>
             </div>
@@ -586,7 +593,8 @@ function Smartbus() {
                 Analyse passenger patterns and route performance.{" "}
               </p>
               <p className="text-lg text-gray-600 dark:text-gray-300">
-                Optimise schedules, reduce costs, and enhance safety strategies.{" "}
+                Optimise schedules, reduce costs, and enhance safety
+                strategies.{" "}
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex items-center space-x-3">
@@ -748,6 +756,26 @@ function Smartbus() {
             </div>
           </div>
         </footer> */}
+      <div>
+        <ScrollTop
+          target="window"
+          threshold={100}
+          className="w-12 h-12 rounded-full bg-gradient-to-r from-[#00ADE7] to-[#305292] flex items-center justify-center shadow-lg hover:scale-125 hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer"
+          icon={
+            <svg
+              className="w-5 h-5 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M12 19V5M5 12l7-7 7 7" />
+            </svg>
+          }
+        />
+      </div>
     </div>
   );
 }

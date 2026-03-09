@@ -79,7 +79,7 @@ function Cameraproductsdetails() {
             <img
               src={`${import.meta.env.BASE_URL}${product.picture.replace(
                 /^\/+/,
-                ""
+                "",
               )}`}
               alt={product.model}
               className={` ${
@@ -113,35 +113,35 @@ function Cameraproductsdetails() {
           </div>
 
           {/* Toggle Buttons */}
-          <div className="bg-slate-100 px-8 py-6">
-            <div className="flex gap-2">
+          <div className="bg-slate-100 px-4 sm:px-8 py-4 sm:py-6">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
               <button
-                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center gap-2 ${
+                className={`w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 text-sm sm:text-base ${
                   preview
-                    ? "bg-white text-orange-600 shadow-md transform -translate-y-0.5"
+                    ? "bg-white text-[#07518a] shadow-md transform -translate-y-0.5"
                     : "text-gray-600 hover:bg-white/50"
                 }`}
                 onClick={HandlePreview}
               >
-                <Eye className="w-5 h-5" />
-                Show Preview
+                <Eye className="w-4 h-4 sm:w-5 sm:h-5 text-[#07518a]" />
+                <span className="whitespace-nowrap">Show Preview</span>
               </button>
               <button
-                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center gap-2 ${
+                className={`w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 text-sm sm:text-base ${
                   download
-                    ? "bg-white text-orange-600 shadow-md transform -translate-y-0.5"
+                    ? "bg-white text-[#07518a] shadow-md transform -translate-y-0.5"
                     : "text-gray-600 hover:bg-white/50"
                 }`}
                 onClick={HandleDownload}
               >
-                <Download className="w-5 h-5" />
-                Download
+                <Download className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="whitespace-nowrap">Download</span>
               </button>
             </div>
           </div>
 
           {/* Content Area */}
-          <div className="py-8 px-12">
+          <div className="py-6 sm:py-8 px-4 sm:px-8 lg:px-12">
             {/* PDF Viewer */}
             {preview && !download && (
               <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-xl overflow-hidden shadow-inner">
@@ -157,16 +157,16 @@ function Cameraproductsdetails() {
 
             {/* Download Section */}
             {download && !preview && (
-              <div className="text-center py-12">
-                <div className="max-w-md mx-auto space-y-8">
-                  <div className="w-24 h-24 bg-orange-100 rounded-full flex items-center justify-center mx-auto">
-                    <Download className="w-12 h-12 text-orange-600" />
+              <div className="text-center py-8 sm:py-12">
+                <div className="max-w-md mx-auto space-y-6 sm:space-y-8">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-[#07518a] to-[#0ea5e9] rounded-full flex items-center justify-center mx-auto shadow-lg">
+                    <Download className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
                   </div>
                   <div>
-                    <h4 className="text-2xl font-bold text-gray-900 mb-2">
+                    <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                       Ready to Download
                     </h4>
-                    <p className="text-gray-600">
+                    <p className="text-sm sm:text-base text-gray-600 px-2">
                       Click the button below to download the product
                       documentation for {product.model}.
                     </p>
@@ -174,9 +174,9 @@ function Cameraproductsdetails() {
                   <a
                     href={product.document}
                     download={`trinai-${product.model}`}
-                    className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
+                    className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-r from-[#07518a] to-[#0ea5e9] hover:from-[#0565b0] hover:to-[#07518a] text-white w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
                   >
-                    <Download className="w-6 h-6" />
+                    <Download className="w-5 h-5 sm:w-6 sm:h-6" />
                     Download Documentation
                   </a>
                 </div>
@@ -189,9 +189,21 @@ function Cameraproductsdetails() {
         {showScrollTop && (
           <button
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 w-14 h-14 bg-orange-600 hover:bg-orange-700 text-white rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-200 transform hover:-translate-y-1 z-50"
+            className="
+      fixed bottom-8 right-8
+      w-12 h-12
+      rounded-full
+      bg-gradient-to-r from-[#00ADE7] to-[#305292]
+      hover:from-[#305292] hover:to-[#00ADE7]
+      text-white
+      shadow-lg hover:shadow-xl
+      flex items-center justify-center
+      transition-all duration-300
+      transform hover:-translate-y-1 hover:scale-105
+      z-50
+    "
           >
-            <ArrowUp className="w-6 h-6" />
+            <ArrowUp className="w-5 h-5" />
           </button>
         )}
       </div>

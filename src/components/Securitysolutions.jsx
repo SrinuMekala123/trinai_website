@@ -208,39 +208,33 @@ export const securitySolutions = [
     title: "Crowd Monitoring",
     category: "tracking",
   },
-  //   { id: "none1", icon: Home, title: "None", category: "other" },
-  //   { id: "none2", icon: Home, title: "None", category: "other" },
+  {
+    id: "Crossline-detection",
+    icon: "https://ik.imagekit.io/e7pijyscb/Trinai%20home%20banner/Untitled%20design%20(8).png",
+    title: "Crossline Detection",
+    category: "tracking",
+  },
 ];
 
 const categoryColors = {
   surveillance: {
-    bg: "from-white to-white",
     icon: "text-[#27AAE1]",
-    hover: "hover:from-[#00ADE7] hover:to-[#305292]",
     border: "border-blue-200",
   },
   tracking: {
-    bg: "from-white to-white",
     icon: "text-[#27AAE1]",
-    hover: "hover:from-[#00ADE7] hover:to-[#305292]",
     border: "border-blue-200",
   },
   safety: {
-    bg: "from-white to-white",
     icon: "text-[#27AAE1]",
-    hover: "hover:from-[#00ADE7] hover:to-[#305292]",
     border: "border-blue-200",
   },
   passenger: {
-    bg: "from-white to-white",
     icon: "text-[#27AAE1]",
-    hover: "hover:from-[#00ADE7] hover:to-[#305292]",
     border: "border-blue-200",
   },
   other: {
-    bg: "from-white to-white",
     icon: "text-[#27AAE1]",
-    hover: "hover:from-[#00ADE7] hover:to-[#305292]",
     border: "border-blue-200",
   },
 };
@@ -260,54 +254,75 @@ function SecurityCard({ solution, index, onClick }) {
         stiffness: 100,
       }}
       whileHover={{
-        scale: 1.05,
-        y: -5,
+        scale: 1.03,
+        y: -3,
         transition: { duration: 0.2 },
       }}
       whileTap={{ scale: 0.98 }}
       onClick={onClick}
       className={`
         group relative cursor-pointer
-        // bg-gradient-to-br ${colors.bg} ${colors.hover}
+        bg-white
         border ${colors.border}
-        p-6 
-        shadow-sm hover:shadow-lg
+        p-3 sm:p-4
+        shadow-lg hover:shadow-2xl
         transition-all duration-300
         flex flex-col items-center justify-center
-        min-h-[140px]
+        min-h-[130px] sm:min-h-[140px] md:min-h-[150px]
         overflow-hidden
+        rounded-[2rem]
+        hover:bg-gradient-to-br hover:from-[#00ADE7] hover:to-[#305292]
       `}
-      style={{ borderRadius: "2.5rem" }}
     >
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-16 h-16 bg-white/30 rounded-full -translate-y-8 translate-x-8 group-hover:scale-150 transition-transform duration-500" />
+      <div className="absolute top-0 right-0 w-12 h-12 bg-white/30 rounded-full -translate-y-6 translate-x-6 group-hover:scale-150 transition-transform duration-500" />
 
-      {/* Icon */}
+      {/* Icon - Compact Size */}
       <div
         className={`
-        p-3 rounded-xl mb-3
+        p-2 rounded-lg mb-2
         bg-white/60 group-hover:bg-white
         transition-all duration-300
         group-hover:scale-110
       `}
       >
-        <img className={`w-14 h-14 ${colors.icon}`} src={IconComponent} />
-        {/* <IconComponent className={`w-8 h-8 ${colors.icon}`} /> */}
+        <img
+          className={`w-9 h-9 sm:w-10 sm:h-10 ${colors.icon}`}
+          src={IconComponent}
+          alt={solution.title}
+        />
       </div>
 
-      {/* Title */}
-      <h3 className="text-sm  font-semibold text-gray-800 text-center leading-tight group-hover:text-white transition-colors duration-300">
+      {/* Title - Compact */}
+      <h3 className="text-[10px] sm:text-xs font-semibold text-gray-800 text-center leading-tight mb-1.5 group-hover:text-white transition-colors duration-300 line-clamp-2">
         {solution.title}
       </h3>
 
-      {/* Hover arrow */}
-      <motion.div
-        initial={{ opacity: 0, x: -10 }}
-        whileHover={{ opacity: 1, x: 0 }}
-        className="absolute bottom-3 right-3"
-      >
-        <ArrowRight className="w-4 h-4 text-gray-400" />
-      </motion.div>
+      {/* View More Link - Compact */}
+      <div className="mt-1 flex flex-col justify-center items-center gap-0.5">
+        <div className="flex items-center gap-1">
+          <span className="text-gray-800 font-medium text-[9px] sm:text-[10px] group-hover:text-white transition-colors duration-300">
+            View More
+          </span>
+          <svg
+            className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-gray-800 group-hover:text-white transition-colors duration-300"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M14 5l7 7m0 0l-7 7m7-7H3"
+            />
+          </svg>
+        </div>
+
+        {/* Animated WHITE Underline */}
+        <div className="h-0.5 w-0 group-hover:w-full bg-white rounded-full transition-all duration-300" />
+      </div>
     </motion.div>
   );
 }
@@ -316,7 +331,6 @@ function DetailView({ solution, onBack }) {
   const IconComponent = solution.icon;
   const colors = categoryColors[solution.category];
 
-  // Mock detailed content based on category
   function getDetailedContent() {
     switch (solution.category) {
       case "surveillance":
@@ -401,7 +415,6 @@ function DetailView({ solution, onBack }) {
       className="min-h-screen bg-gradient-to-br from-gray-50 to-white p-6"
     >
       <div className="max-w-4xl mx-auto">
-        {/* Back Button */}
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -412,7 +425,6 @@ function DetailView({ solution, onBack }) {
           Back to Solutions
         </motion.button>
 
-        {/* Header */}
         <div
           className={`bg-gradient-to-r ${colors.bg} rounded-3xl p-8 mb-8 border ${colors.border}`}
         >
@@ -441,126 +453,6 @@ function DetailView({ solution, onBack }) {
             <div key={index}>{feature}</div>
           ))}
         </div>
-
-        {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="bg-white rounded-2xl p-6 shadow-lg"
-          >
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-              <Sparkles className="w-6 h-6 mr-3 text-yellow-500" />
-              Key Features
-            </h2>
-            <div className="space-y-4">
-              {solution?.details?.features?.map((feature, index) => (
-                <motion.div
-                  key={feature}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3 + index * 0.1 }}
-                  className="flex items-center p-3 bg-gray-50 rounded-xl"
-                >
-                  <div className={`w-2 h-2 rounded-full  mr-4`} />
-                  <span className="font-medium text-gray-700">{feature}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div> */}
-
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Features */}
-          {/* <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="bg-white rounded-2xl p-6 shadow-lg"
-          >
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-              <Sparkles className="w-6 h-6 mr-3 text-yellow-500" />
-              Key Features
-            </h2>
-            <div className="space-y-4">
-              {content.features.map((feature, index) => (
-                <motion.div
-                  key={feature}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3 + index * 0.1 }}
-                  className="flex items-center p-3 bg-gray-50 rounded-xl"
-                >
-                  <div
-                    className={`w-2 h-2 rounded-full ${colors.icon.replace(
-                      "text-",
-                      "bg-"
-                    )} mr-4`}
-                  />
-                  <span className="font-medium text-gray-700">{feature}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div> */}
-
-          {/* Benefits */}
-          {/* <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="bg-white rounded-2xl p-6 shadow-lg"
-          >
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-              <Target className="w-6 h-6 mr-3 text-green-500" />
-              Benefits
-            </h2>
-            <div className="space-y-4">
-              {content.benefits.map((benefit, index) => (
-                <motion.div
-                  key={benefit}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.5 + index * 0.1 }}
-                  className="flex items-center p-3 bg-gray-50 rounded-xl"
-                >
-                  <div className="w-2 h-2 rounded-full bg-green-500 mr-4" />
-                  <span className="font-medium text-gray-700">{benefit}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div> */}
-        </div>
-
-        {/* CTA */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="mt-8 text-center"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className={`
-              px-8 py-4 rounded-2xl font-bold text-white
-              bg-gradient-to-r ${
-                colors.icon.includes("blue")
-                  ? "from-blue-500 to-blue-600"
-                  : colors.icon.includes("emerald")
-                  ? "from-emerald-500 to-emerald-600"
-                  : colors.icon.includes("orange")
-                  ? "from-orange-500 to-orange-600"
-                  : "from-gray-500 to-gray-600"
-              }
-              hover:shadow-lg transition-all duration-300
-              flex items-center mx-auto
-            `}
-          >
-            Get Started with {solution.title}
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </motion.button>
-        </motion.div> */}
       </div>
     </motion.div>
   );
@@ -574,9 +466,9 @@ function Securitysolutions() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-teal-50 py-12 px-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-teal-50 py-8 sm:py-12 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 lg:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4 lg:gap-6">
           {securitySolutions.map((solution, index) => (
             <SecurityCard
               key={solution.id}

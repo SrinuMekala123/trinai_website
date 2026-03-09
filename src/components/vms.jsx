@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ScrollTop } from "primereact/scrolltop";
 import {
   Shield,
   Eye,
@@ -105,7 +106,7 @@ function Vms() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
-      <nav className="bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-0">
+      {/* <nav className="bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
@@ -115,10 +116,10 @@ function Vms() {
               </span>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
+      {/* Mobile Menu */}
+      {/* {isMenuOpen && (
           <div className="md:hidden bg-white border-t">
             <div className="px-4 py-2 space-y-2">
               <a href="#features" className="block py-2 text-gray-700">
@@ -136,7 +137,7 @@ function Vms() {
             </div>
           </div>
         )}
-      </nav>
+      </nav> */}
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#00ADE7] to-[#305292] text-white overflow-hidden">
@@ -378,6 +379,26 @@ function Vms() {
           </div>
         </div>
       </section>
+      <div>
+        <ScrollTop
+          target="window"
+          threshold={100}
+          className="w-12 h-12 rounded-full bg-gradient-to-r from-[#00ADE7] to-[#305292] flex items-center justify-center shadow-lg hover:scale-125 hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer"
+          icon={
+            <svg
+              className="w-5 h-5 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M12 19V5M5 12l7-7 7 7" />
+            </svg>
+          }
+        />
+      </div>
     </div>
   );
 }

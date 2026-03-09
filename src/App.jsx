@@ -24,6 +24,7 @@ import Nvr from "./admin/Nvr";
 import Poe from "./admin/Poe";
 import Server from "./admin/Server";
 import Smartbus from "./pages/Smartbus";
+import Vms from "./components/Vms";
 import Securitysolutions from "./components/Securitysolutions";
 import SecurityDetail from "./components/SecurityDetail";
 import Motiondetection from "./security-solutions/Motion-detection";
@@ -46,6 +47,8 @@ import FIre_smoke_detection from "./security-solutions/FIre&smoke_detection";
 import Real_time_hazard from "./security-solutions/Real_time_hazard";
 import Automated_emergency_response from "./security-solutions/Automated_emergency_response";
 import Privacy_policy from "./components/privacy_policy";
+import Crossline_detection from "./security-solutions/Crossline_detection";
+import ScenarioDetails from "./pages/ScenarioDetails";
 
 function App() {
   return (
@@ -59,7 +62,7 @@ function App() {
           <Route path="contact" element={<Contact />}></Route>
           <Route path="solutions" element={<Solutions />}></Route>
           <Route path="about" element={<About />}></Route>
-          <Route path="categories/:type/:name?" element={<Categories />} />
+          <Route path="products/:type/:name?" element={<Categories />} />
           <Route path="viewproducts" element={<Viewproducts />} />
           <Route path="cemaradetails" element={<Cameraproductsdetails />} />
           <Route path="products" element={<Products />}></Route>
@@ -67,7 +70,9 @@ function App() {
           <Route path="carousel" element={<MyCarousel />} />
           <Route path="fluid" element={<FluidTabs />}></Route>
           <Route path="image" element={<FileUpload />}></Route>
+          <Route path="privacy-policy" element={<Privacy_policy />} />
           <Route path="smartbus" element={<Smartbus />} />
+          <Route path="/vms" element={<Vms />} />
           <Route
             path="security/motion-detection"
             element={<Motiondetection />}
@@ -125,11 +130,15 @@ function App() {
             path="security/emergency-response"
             element={<Automated_emergency_response />}
           />
-
+          <Route
+            path="security/crossline-detection"
+            element={<Crossline_detection />}
+          />
           <Route
             path="security/crowd-monitoring"
             element={<Crowd_monitoring />}
           />
+          <Route path="solutions/:id" element={<ScenarioDetails />} />
         </Route>
         <Route path="dashboard/home" element={<Dashboard />}>
           <Route path="" element={<AMain />}></Route>
@@ -142,7 +151,6 @@ function App() {
           <Route path="server" element={<Server />} />
         </Route>
         <Route path="dashboard/login" element={<Login />}></Route>
-        <Route path="privacy-policy" element={<Privacy_policy />} />
       </Routes>
     </BrowserRouter>
   );
