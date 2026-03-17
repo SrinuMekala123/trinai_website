@@ -1,3 +1,4 @@
+// src/components/Header.jsx
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
@@ -28,6 +29,9 @@ import thermal from "../images/thermal-camera.png";
 import aifacerecognition from "../images/TrinAI-TN50 (1).png";
 import display from "../images/display1.png";
 
+// ✅ IMPORT PRODUCTS DATA FOR ID LOOKUP
+import productsall from "./Mainproducts";
+
 // ========== CATEGORIES DATA ==========
 const categories = [
   "Bullet Cameras",
@@ -42,125 +46,41 @@ const categories = [
   "Display",
 ];
 
-// ========== PRODUCTS BY CATEGORY ==========
+// ========== PRODUCTS BY CATEGORY (STATIC FOR MEGA MENU) ==========
 const productsByCategory = {
-  "Thermal Cameras": [
-    {
-      name: "Thermal Cameras",
-      image:
-        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
-    },
-  ],
+  "Thermal Cameras": [{ name: "Thermal Cameras", image: thermal }],
   "Bullet Cameras": [
-    {
-      name: "2MP HD Bullet Camera",
-      image:
-        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
-    },
-    {
-      name: "3MP HD Bullet Camera",
-      image:
-        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
-    },
-    {
-      name: "4MP HD Bullet Camera",
-      image:
-        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
-    },
-    {
-      name: "5MP HD Bullet Camera",
-      image:
-        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
-    },
-    {
-      name: "8MP HD Bullet Camera",
-      image:
-        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
-    },
+    { name: "2MP HD Bullet Camera", image: bullet },
+    { name: "3MP HD Bullet Camera", image: bullet },
+    { name: "4MP HD Bullet Camera", image: bullet },
+    { name: "5MP HD Bullet Camera", image: bullet },
+    { name: "8MP HD Bullet Camera", image: bullet },
   ],
   "Eyeball Cameras": [
-    {
-      name: "4MP EyeBall Camera",
-      image:
-        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
-    },
-    {
-      name: "8MP EyeBall Camera",
-      image:
-        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
-    },
-    {
-      name: "5MP EyeBall Camera",
-      image:
-        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
-    },
-    {
-      name: "2MP EyeBall Camera",
-      image:
-        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
-    },
+    { name: "4MP EyeBall Camera", image: eyeball },
+    { name: "8MP EyeBall Camera", image: eyeball },
+    { name: "5MP EyeBall Camera", image: eyeball },
+    { name: "2MP EyeBall Camera", image: eyeball },
   ],
   "Dome Cameras": [
-    {
-      name: "2MP Dome Camera",
-      image:
-        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
-    },
-    {
-      name: "Mini Dome-Internal Camera (720P)",
-      image:
-        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
-    },
+    { name: "2MP Dome Camera", image: dome },
+    { name: "Mini Dome-Internal Camera (720P)", image: dome },
   ],
   "PTZ Cameras": [
-    {
-      name: "2MP PTZ Camera",
-      image:
-        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
-    },
-    {
-      name: "4MP PTZ Camera",
-      image:
-        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
-    },
+    { name: "2MP PTZ Camera", image: ptz },
+    { name: "4MP PTZ Camera", image: ptz },
   ],
   "Network Video Recorder": [
-    {
-      name: "16/32-Channel Input NVR",
-      image:
-        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
-    },
-    {
-      name: "16/32/64-channel input NVR",
-      image:
-        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
-    },
-    {
-      name: "MDVR",
-      image:
-        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
-    },
+    { name: "16/32-Channel Input NVR", image: nvr },
+    { name: "16/32/64-channel input NVR", image: nvr },
+    { name: "MDVR", image: nvr },
   ],
-  Server: [
-    {
-      name: "Server",
-      image:
-        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
-    },
-  ],
+  Server: [{ name: "Server", image: server }],
   "Smart GPU with AI Camera": [
-    {
-      name: "Smart GPU with AI Camera",
-      image:
-        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
-    },
+    { name: "Smart GPU with AI Camera", image: gpu },
   ],
   "Trinai Facial BioStand": [
-    {
-      name: "Trinai Facial BioStand",
-      image:
-        "https://cdn.vectorstock.com/i/1000v/32/13/cctv-camera-security-surveillance-system-vector-20943213.jpg",
-    },
+    { name: "Trinai Facial BioStand", image: aifacerecognition },
   ],
   Display: [{ name: "Display", image: display }],
 };
@@ -179,6 +99,19 @@ const categoryImages = {
   Display: display,
 };
 
+// 🔥 HELPER: Find product in productsall by name and category
+const findProductInDatabase = (productName, category) => {
+  return productsall.find((p) => {
+    const nameMatch = p.name === productName;
+    const categoryMatch =
+      p.cameraType
+        ?.toLowerCase()
+        .includes(category.split(" ")[0].toLowerCase()) ||
+      p.productType?.toLowerCase().includes(category.toLowerCase());
+    return nameMatch && categoryMatch;
+  });
+};
+
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -194,99 +127,133 @@ const Header = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [closeTimeout, setCloseTimeout] = useState(null);
 
-  // 🔥 Check current page level
+  // 🔥 Check current page type
   const pathParts = location.pathname.split("/").filter(Boolean);
-  const isProductPage = pathParts[0] === "products" && pathParts.length >= 3;
-  const isCategoryPage = pathParts[0] === "products" && pathParts.length === 2;
-  const isProductsMainPage = location.pathname === "/products";
 
-  // 🔥 NEW: Check for Cemara Details PDF page
+  // ✅ Check if it's a PRODUCT DETAIL page: /products/:category/:product/:id
+  const isProductDetailPage =
+    pathParts[0] === "products" && pathParts.length === 4;
+
+  // ✅ Check if it's a CATEGORY page: /products/:category
+  const isCategoryPage = pathParts[0] === "products" && pathParts.length === 2;
+
+  // ✅ Check for old Cemara Details PDF page
   const isCemaraDetailsPage = location.pathname === "/cemaradetails";
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 10);
+    const onScroll = () => {
+      // ✅ DIFFERENT BEHAVIOR:
+      // - Product detail pages: Always show white header
+      // - Category pages: Show white header only after scrolling
+      if (isProductDetailPage) {
+        setIsScrolled(true);
+      } else if (isCategoryPage) {
+        setIsScrolled(window.scrollY > 50);
+      } else {
+        setIsScrolled(window.scrollY > 10);
+      }
+    };
+
+    onScroll();
     window.addEventListener("scroll", onScroll);
     return () => {
       window.removeEventListener("scroll", onScroll);
       if (closeTimeout) clearTimeout(closeTimeout);
     };
-  }, [closeTimeout]);
+  }, [isProductDetailPage, isCategoryPage]);
 
   // 🔥 Extract product name from URL to persist selection
   useEffect(() => {
-    if (pathParts[0] === "products" && pathParts.length >= 3) {
-      const productNameSlug = pathParts[2];
-      const decodedName = decodeURIComponent(productNameSlug)
-        .split("-")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ");
+    if (pathParts[0] === "products" && pathParts.length === 4) {
+      const productId = pathParts[3];
+      const foundProduct = productsall.find(
+        (p) => String(p.id) === String(productId),
+      );
 
-      for (const categoryProducts of Object.values(productsByCategory)) {
-        const foundProduct = categoryProducts.find(
-          (p) => p.name === decodedName,
-        );
-        if (foundProduct) {
-          setSelectedProduct(decodedName);
-          return;
-        }
+      if (foundProduct) {
+        setSelectedProduct(foundProduct.name);
       }
     }
-    setSelectedProduct(null);
-  }, [location.pathname]);
+  }, [location.pathname, pathParts]);
 
   useEffect(() => {
     setIsCategoriesOpen(false);
   }, [location.pathname]);
 
+  // ✅ FORCE WHITE HEADER on these pages:
   const forceWhiteHeader =
     location.pathname === "/about" ||
     location.pathname === "/viewproducts" ||
-    location.pathname.startsWith("/cemaradetails");
+    isCemaraDetailsPage ||
+    isProductDetailPage;
+
+  // ✅ Show white header when:
   const showWhiteHeader = isScrolled || forceWhiteHeader || isCategoriesOpen;
 
   // 🔥 Slugify function
   const slugify = (text) => {
     return text
+      .toString()
       .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
+      .trim()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
   };
 
-  // 🔥 Navigation handler for desktop
+  // 🔥 Navigation handler for desktop - ✅ FIXED: Always use selectedCategory for slug
   const handleProductClick = (product, isSeeMore = false) => {
-    const typeSlug = slugify(selectedCategory);
-    let targetUrl = "";
-
     if (isSeeMore || !product?.name) {
-      targetUrl = `/products/${typeSlug}`;
+      const categorySlug = slugify(selectedCategory);
+      navigate(`/products/${categorySlug}`);
       setSelectedProduct(null);
     } else {
-      const nameSlug = slugify(product.name);
-      targetUrl = `/products/${typeSlug}/${encodeURIComponent(nameSlug)}`;
-      setSelectedProduct(product.name);
-    }
+      // ✅ Find the real product in database to get its ID
+      const realProduct = findProductInDatabase(product.name, selectedCategory);
 
+      if (realProduct?.id) {
+        // ✅ KEY FIX: ALWAYS use selectedCategory (full name) for category slug
+        // This ensures: "Eyeball Cameras" → "eyeball-cameras" (not "eyeball")
+        const categorySlug = slugify(selectedCategory);
+        const productSlug = slugify(product.name);
+        navigate(`/products/${categorySlug}/${productSlug}/${realProduct.id}`);
+        setSelectedProduct(product.name);
+      } else {
+        // Fallback: navigate to category page if product not found
+        const categorySlug = slugify(selectedCategory);
+        navigate(`/products/${categorySlug}`);
+      }
+    }
     setIsCategoriesOpen(false);
-    navigate(targetUrl);
   };
 
-  // 🔥 Navigation handler for mobile
+  // 🔥 Navigation handler for mobile - ✅ FIXED: Always use mobileSelectedCategory for slug
   const handleMobileProductClick = (product, isSeeMore = false) => {
-    const typeSlug = slugify(mobileSelectedCategory);
-    let targetUrl = "";
-
     if (isSeeMore || !product?.name) {
-      targetUrl = `/products/${typeSlug}`;
+      const categorySlug = slugify(mobileSelectedCategory);
+      navigate(`/products/${categorySlug}`);
       setSelectedProduct(null);
     } else {
-      const nameSlug = slugify(product.name);
-      targetUrl = `/products/${typeSlug}/${encodeURIComponent(nameSlug)}`;
-      setSelectedProduct(product.name);
-    }
+      // ✅ Find the real product in database to get its ID
+      const realProduct = findProductInDatabase(
+        product.name,
+        mobileSelectedCategory,
+      );
 
+      if (realProduct?.id) {
+        // ✅ KEY FIX: ALWAYS use mobileSelectedCategory (full name) for category slug
+        const categorySlug = slugify(mobileSelectedCategory);
+        const productSlug = slugify(product.name);
+        navigate(`/products/${categorySlug}/${productSlug}/${realProduct.id}`);
+        setSelectedProduct(product.name);
+      } else {
+        // Fallback: navigate to category page if product not found
+        const categorySlug = slugify(mobileSelectedCategory);
+        navigate(`/products/${categorySlug}`);
+      }
+    }
     setIsMobileProductsOpen(false);
     setIsMenuOpen(false);
-    navigate(targetUrl);
   };
 
   const handleMenuEnter = () => {
@@ -308,12 +275,10 @@ const Header = () => {
     setIsMobileProductsOpen(false);
   };
 
-  // 🔥 Toggle mega menu dropdown (doesn't navigate)
   const toggleMobileProducts = () => {
     setIsMobileProductsOpen(!isMobileProductsOpen);
   };
 
-  // 🔥 Navigate to products page directly (like laptop click)
   const handleMobileProductsNavClick = () => {
     navigate("/products");
     setIsMenuOpen(false);
@@ -324,11 +289,9 @@ const Header = () => {
     setMobileSelectedCategory(category);
   };
 
-  // 🔥 Smart Back Button Handler - Multi-level navigation INCLUDING PDF page
+  // 🔥 Smart Back Button Handler
   const handleBackClick = () => {
-    // 🔥 Special case: Cemara Details PDF page
     if (isCemaraDetailsPage) {
-      // Try to go back in history, fallback to /products if no history
       if (window.history.length > 1) {
         navigate(-1);
       } else {
@@ -337,36 +300,23 @@ const Header = () => {
       return;
     }
 
-    // Product pages navigation
-    if (pathParts.length >= 3) {
-      // Product Detail Page → Go to Category Page
+    if (isProductDetailPage) {
+      // Go back to category page
       const categorySlug = pathParts[1];
       navigate(`/products/${categorySlug}`);
-    } else if (pathParts.length === 2) {
-      // Category Page → Go to Main Products Page
+    } else if (isCategoryPage) {
       navigate("/products");
     } else {
-      // Main Products Page → Go to Home
       navigate("/");
     }
   };
 
-  // 🔥 Get Back Button Label based on current page
+  // 🔥 Get Back Button Label
   const getBackButtonLabel = () => {
-    // 🔥 Special label for Cemara Details page
-    if (isCemaraDetailsPage) {
+    if (isCemaraDetailsPage || isProductDetailPage) {
       return "Back to Products";
     }
-
-    if (pathParts.length >= 3) {
-      // On product detail page
-      const categorySlug = pathParts[1];
-      const categoryName = categories.find(
-        (cat) => slugify(cat) === categorySlug,
-      );
-      return `Back to ${categoryName || "Category"}`;
-    } else if (pathParts.length === 2) {
-      // On category page
+    if (isCategoryPage) {
       return "Back to All Products";
     }
     return "Back";
@@ -498,18 +448,6 @@ const Header = () => {
             />
           </Link>
 
-          {/* 🔥 Smart Back Button for Product/Category/PDF Pages (Mobile/Tablet) */}
-          {/* {(isProductPage || isCategoryPage || isCemaraDetailsPage) && (
-            <button
-              onClick={handleBackClick}
-              className="lg:hidden flex items-center gap-1 text-[#00ADE7] font-semibold px-3 py-2 rounded-lg hover:bg-[#f0f7ff] transition-colors text-sm"
-            >
-              <FiArrowLeft size={16} />
-              <span className="hidden sm:inline">{getBackButtonLabel()}</span>
-              <span className="sm:hidden">Back</span>
-            </button>
-          )} */}
-
           <nav
             className={`hidden lg:flex items-center gap-2 font-semibold transition-colors
               ${showWhiteHeader ? "text-black" : "text-white"}
@@ -640,7 +578,7 @@ const Header = () => {
           </nav>
         </div>
 
-        {/* ================= RIGHT: PHONE + CTA (NO SEARCH) ================= */}
+        {/* ================= RIGHT: PHONE + CTA ================= */}
         <div className="hidden md:flex items-center gap-4">
           {/* PHONE */}
           <div
@@ -674,7 +612,7 @@ const Header = () => {
           </button>
         </div>
 
-        {/* ================= MOBILE MENU BUTTON (NO SEARCH) ================= */}
+        {/* ================= MOBILE MENU BUTTON ================= */}
         <button
           onClick={() => setIsMenuOpen(true)}
           className={`lg:hidden text-2xl ${
@@ -747,7 +685,7 @@ const Header = () => {
                   : "hover:bg-[#f0f7ff]"
               }`}
             >
-              {/* 🔥 LEFT: Products Text - Navigates to /products (like laptop) */}
+              {/* 🔥 LEFT: Products Text - Navigates to /products */}
               <button
                 onClick={handleMobileProductsNavClick}
                 className="flex-1 text-left"
